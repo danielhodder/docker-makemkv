@@ -82,6 +82,7 @@ RUN \
 # Add files.
 COPY rootfs/ /
 COPY --from=makemkv-bin /opt/makemkv /opt/makemkv
+COPY --from=makemkv-bin /opt/makemkvcon /opt/makemkvcon
 COPY --from=makemkv-oss /tmp/makemkv-install/usr /opt/makemkv
 
 # Update the default configuration file with the latest beta key.
@@ -119,3 +120,8 @@ LABEL \
       org.label-schema.version="${DOCKER_IMAGE_VERSION:-unknown}" \
       org.label-schema.vcs-url="https://github.com/jlesage/docker-makemkv" \
       org.label-schema.schema-version="1.0"
+
+RUN apk add bash
+
+ENTRYPOINT [  ]
+CMD [ "bash" ]
